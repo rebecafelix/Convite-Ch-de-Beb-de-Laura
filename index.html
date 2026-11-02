@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chá de Bebê da Laura</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="hero">
+    <img id="art" alt="Moldura rosa com borboletas e flores com o nome Laura" src="marcalaura.png">
+    <p class="eyebrow">Você está convidado para o</p>
+    <h1 class="script">Chá de Bebê da Laurinha</h1>
+    <p class="lead">Uma pequena princesa está a caminho e queremos você ao nosso lado para celebrar esse momento tão especial.</p>
+  </section>
+
+  <section class="card" aria-labelledby="t-quando">
+    <h2 class="script" id="t-quando">Quando &amp; onde</h2>
+    <p class="when">
+      <span>Data<b>14 de novembro</b></span>
+      <span>Horário<b>16h</b></span>
+    </p>
+    <p class="addr" style="margin-top:14px">Edifício Praça das Paineiras<br>Rua Paes Cabral, 88 – Bairro Cordeiro<br>Recife – PE</p>
+    <a class="map-btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/qpZnUqzzYsvmFEDx7">Ver no mapa</a>
+  </section>
+
+  <section class="card" aria-labelledby="t-cont">
+    <h2 class="script" id="t-cont">Falta pouco!</h2>
+    <div class="count" id="count" role="timer" aria-live="off">
+      <div><strong id="d">--</strong><small>dias</small></div>
+      <div><strong id="h">--</strong><small>horas</small></div>
+      <div><strong id="m">--</strong><small>min</small></div>
+      <div><strong id="s">--</strong><small>seg</small></div>
+    </div>
+    <p id="count-msg" class="lead" style="margin-top:12px"></p>
+  </section>
+
+  <section class="card" aria-labelledby="t-rsvp" id="rsvp">
+    <h2 class="script" id="t-rsvp">Confirme sua presença</h2>
+    <form id="form" novalidate>
+      <div>
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" autocomplete="name" placeholder="Nome e sobrenome">
+      </div>
+      <div>
+        <label id="lbl-q">Quantas pessoas vão com você?</label>
+        <div class="stepper" role="group" aria-labelledby="lbl-q">
+          <button type="button" id="minus" aria-label="Diminuir">−</button>
+          <output id="qtd" aria-live="polite">0</output>
+          <button type="button" id="plus" aria-label="Aumentar">+</button>
+        </div>
+        <p class="total" id="total">Total: 1 pessoa (só você)</p>
+      </div>
+      <div>
+        <label for="msg">Recadinho para a Laura (opcional)</label>
+        <textarea id="msg" placeholder="Deixe um carinho para a mamãe e a bebê"></textarea>
+      </div>
+      <p class="err" id="err" role="alert"></p>
+      <button class="primary" type="submit" style="justify-self:center">Confirmar presença</button>
+    </form>
+
+    <div class="ok" id="ok">
+      <p class="script">Presença confirmada!</p>
+      <p id="ok-text"></p>
+      <div class="actions">
+        <a class="map-btn" id="wa" target="_blank" rel="noopener" href="#">Avisar pelo WhatsApp</a>
+        <button class="map-btn ghost" id="edit" type="button">Alterar resposta</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img id="art2" alt="" aria-hidden="true">
+    Com amor, a família da Laura
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

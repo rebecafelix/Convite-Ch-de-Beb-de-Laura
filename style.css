@@ -1,0 +1,49 @@
+:root{
+  --bg:#f8d9d5; --bg2:#fceeea; --card:#fffdfa; --ink:#7a5a56; --muted:#a88985;
+  --rose:#f7d9d5; --rose-d:#d99a95; --gold:#c9a24b; --gold-l:#ebd9a0; --line:#f2e0d6;
+  --on-rose:#6b4541; color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);
+  font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:19px;line-height:1.5;min-height:100vh}
+main{max-width:640px;margin:0 auto;padding:24px 18px 48px;text-align:center}
+.script{font-family:'Great Vibes','Brush Script MT',cursive;font-weight:400;color:var(--gold)}
+.hero img{width:min(340px,86%);height:auto;filter:drop-shadow(0 10px 18px rgba(150,90,80,.25))}
+.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:14px;color:var(--muted);margin:10px 0 0}
+h1{font-size:46px;margin:2px 0 6px;line-height:1.1}
+.lead{margin:0 auto 8px;max-width:30em;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 18px;margin:22px 0;
+  box-shadow:0 0 0 5px var(--card),0 0 0 6px var(--gold-l)}
+h2{font-size:34px;margin:0 0 10px}
+.when{display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap;margin:0}
+.when b{display:block;font-size:22px;color:var(--rose-d)}
+.when span{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.count div{background:var(--rose);color:var(--on-rose);border:1px solid var(--gold-l);border-radius:16px;padding:12px 4px}
+.count strong{display:block;font-size:34px;line-height:1.1;font-weight:600}
+.count small{font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.addr{margin:0;font-size:20px}
+.map-btn,button.primary{display:inline-block;margin-top:14px;padding:12px 26px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#4a3010;font:600 18px 'Cormorant Garamond',Georgia,serif;
+  text-decoration:none;letter-spacing:.04em}
+form{text-align:left;display:grid;gap:14px}
+label{font-size:17px;color:var(--muted);display:block;margin-bottom:4px}
+input[type=text],textarea{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);
+  color:var(--ink);font:inherit}
+textarea{resize:vertical;min-height:70px}
+input:focus,textarea:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:var(--bg2);color:var(--ink);font-size:24px;cursor:pointer}
+.stepper output{min-width:36px;text-align:center;font-size:30px;font-weight:600;color:var(--rose-d)}
+.total{margin:0;color:var(--muted);font-size:17px}
+.err{color:#b4443f;font-size:16px;margin:0;min-height:1em}
+.ok{display:none}
+.ok .script{font-size:40px;margin:0}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.actions a,.actions button{margin-top:10px}
+button.ghost{background:transparent;border:1px solid var(--gold);color:var(--ink)}
+footer{margin-top:28px;color:var(--muted);font-size:16px}
+footer img{width:84px;height:auto;display:block;margin:0 auto 6px;opacity:.9}
