@@ -47,3 +47,10 @@ input:focus,textarea:focus,button:focus-visible{outline:2px solid var(--gold);ou
 button.ghost{background:transparent;border:1px solid var(--gold);color:var(--ink)}
 footer{margin-top:28px;color:var(--muted);font-size:16px}
 footer img{width:84px;height:auto;display:block;margin:0 auto 6px;opacity:.9}
+.livebar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;text-align:center;padding:8px 14px;
+  background:var(--rose);color:var(--on-rose);border-bottom:1px solid var(--gold-l);font-size:19px;letter-spacing:.02em}
+.livebar strong{font-size:26px;color:var(--rose-d);display:inline-block;vertical-align:middle;line-height:1}
+.livebar.pulse strong{animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.5)}100%{transform:scale(1)}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--rose)}
+@media (prefers-reduced-motion:reduce){.livebar.pulse strong{animation:none}}

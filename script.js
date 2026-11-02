@@ -37,7 +37,7 @@
     var tot = data.qtd + 1;
     document.getElementById('ok-text').textContent = 'Obrigada, ' + data.nome + '! Anotamos ' + tot + (tot===1?' pessoa':' pessoas') + ' para o chá da Laura, dia 14 de novembro às 16h.';
     var txt = 'Olá! Confirmo presença no chá de bebê da Laura (14/11 às 16h). Nome: ' + data.nome + '. Total de pessoas: ' + tot + '.' + (data.msg ? ' Recado: ' + data.msg : '');
-    document.getElementById('wa').href = 'https://wa.me/qr/5XQ5B7ORHMKNL1' + encodeURIComponent(txt);
+    document.getElementById('wa').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
     form.style.display = 'none'; ok.style.display = 'block';
   }
   form.addEventListener('submit', function(e){
@@ -48,13 +48,14 @@
     var data = {nome:n, qtd:qtd, msg:msgEl.value.trim()};
     try{ localStorage.setItem('rsvp-laura', JSON.stringify(data)); }catch(x){}
     saveShared(data);
+    if(!colRef) showCount(data.qtd + 1);
     showOk(data);
   });
   document.getElementById('edit').onclick = function(){ ok.style.display='none'; form.style.display='grid'; };
 
   try{
     var saved = JSON.parse(localStorage.getItem('rsvp-laura') || 'null');
-    if(saved && saved.nome){ nome.value = saved.nome; qtd = Math.min(MAX, saved.qtd||0); msgEl.value = saved.msg||''; render(); showOk(saved); }
+    if(saved && saved.nome){ nome.value = saved.nome; qtd = Math.min(MAX, saved.qtd||0); msgEl.value = saved.msg||''; render(); showOk(saved); showCount((saved.qtd||0) + 1); }
   }catch(x){}
 
   /* Contagem compartilhada de confirmados (só funciona na página publicada) */
@@ -66,10 +67,15 @@
       return k;
     }catch(x){ return 'g' + Math.random().toString(36).slice(2); }
   }
+  var lastTotal = null;
   function showCount(total){
+    var bar = document.getElementById('confirmed');
     document.getElementById('conf-n').textContent = total;
-    document.getElementById('conf-t').textContent = total === 1 ? 'pessoa já confirmou presença 💗' : 'pessoas já confirmaram presença 💗';
-    document.getElementById('confirmed').hidden = false;
+    document.getElementById('conf-t').textContent = total === 1 ? 'pessoa confirmada' : 'pessoas confirmadas';
+    if(lastTotal !== null && total !== lastTotal){
+      bar.classList.remove('pulse'); void bar.offsetWidth; bar.classList.add('pulse');
+    }
+    lastTotal = total;
   }
   function saveShared(data){
     if(!colRef || !myId) return;
